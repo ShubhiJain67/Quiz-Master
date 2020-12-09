@@ -1,0 +1,111 @@
+:root {
+    --baseColor: #008589;
+  }
+
+body{
+    background-color: var(--baseColor);
+    min-width: 600px;
+}
+
+/*------------------------------------------- Main Sections ------------------------------------------*/
+
+#quiz-wrapper{
+    width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+    padding:20px;
+}
+#personalInfo{
+    text-align: center;
+}
+#name{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    border: 2px solid var(--baseColor);
+}
+#result{
+    text-align: center;
+    display: none;
+}
+
+
+/*------------------------------------------- Result Table ------------------------------------------*/
+
+
+table{
+    margin:auto;
+    width:90%;
+}
+tr *{
+    width: 50%;
+    padding:5px 5px 5px 15px;
+    text-align: left;
+    font-weight: bold;
+    color: #443f3f;
+    border:1px solid var(--baseColor);
+}
+
+
+/*------------------------------------------- Questions ------------------------------------------*/
+
+
+#questions{
+    width: 90%;
+    margin: auto;
+}
+
+
+/*------------------------------------------- Options ------------------------------------------*/
+
+
+.option{
+    width: 100%;
+    border: none;
+    margin:5px 5px 5px 0px;
+    padding-left: 20px ;
+    height: 50px;
+    text-align: left;
+    border-radius: 5px;
+    border: 2px solid #EFEFEF;
+    transition: 0.4s;
+}
+.option:hover{
+    border: 2px solid var(--baseColor);
+}
+.correctOption{
+    background-color: green;
+    transition-timing-function: linear;
+}
+.wrongOption{
+    background-color: red;
+    transition-timing-function: linear;
+}
+
+
+/*------------------------------------------- Buttons ------------------------------------------*/
+
+
+.bttn{
+    background-color: var(--baseColor);
+    border: none;
+    border-radius: 5px;
+    margin: 20px 20px 0px 00px;
+    width: 150px;
+    height: 50px;
+    color: white;
+}
+.bttn:hover{
+    background-color: white;
+    border: 2px solid var(--baseColor);
+    color: var(--baseColor);
+}
+
+/*------------------------------------------- General ------------------------------------------*/
+
+.heading{
+    margin-bottom: 30px;
+    color: #1d7a7e;
+}
