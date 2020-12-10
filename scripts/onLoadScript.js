@@ -24,6 +24,8 @@ function loadQuizOptions() {
 function start(id) {
     questions=quizes[id];
     quizName=id;
+    minLeft=quizTime[id].min;
+    secLeft=quizTime[id].sec+1;
     console.log("Ques : "+questions);
     console.log("Quiz Name : "+quizName);
     hide("quizOptions");
@@ -53,6 +55,7 @@ function loadIntroduction() {
 
 function loadQuestions() {
     // console.log("Loading Questions");
+    questionHtml=`<h4 id="timer"></h4>`;
     for (let i = 0; i < size(questions); i++) {
         let qid = i + 1;
         questionHtml += `<div id="question${qid}" style="display:none">
@@ -75,7 +78,6 @@ function loadQuestions() {
                         </div>`;
     }
     set("questions",questionHtml);
-    console.log(questionHtml);
 }
 
 //--------------------------------- Loading Results ---------------------------------//

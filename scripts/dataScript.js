@@ -171,6 +171,28 @@ let quizes = {
         }
     ]
 };
+let quizTime={
+    Logical:{
+        min:1,
+        sec:0
+    },
+    Maths:{
+        min:2,
+        sec:0
+    },
+    English:{
+        min:3,
+        sec:0
+    },
+    History:{
+        min:4,
+        sec:0
+    },
+    Geography:{
+        min:5,
+        sec:0
+    }
+}
 let result = {
     total: {
         name: "Total Questions",

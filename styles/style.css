@@ -56,6 +56,12 @@ tr *{
 /*------------------------------------------- Questions ------------------------------------------*/
 
 
+#timer{
+    text-align: center;
+    color: red;
+    /* position: fixed;
+    padding-left: 36%; */
+}
 #questions{
     width: 90%;
     margin: auto;

@@ -27,7 +27,8 @@ function StartQuiz() {
     // console.log("Started Quiz");
     hide("home");
     if (size(questions)> 0) {
-        show("question1");
+        show("question1")
+        startTimer();
     }
 }
 
@@ -35,6 +36,8 @@ function StartQuiz() {
 
 function StartAgain(){
     Reset();
+    minLeft=quizTime[quizName].min;
+    secLeft=quizTime[quizName].sec+1;
     hide("result");
     show("questions");
     StartQuiz();
@@ -48,16 +51,15 @@ function EndQuiz() {
         hide("question" + size(questions));
         show("result");
         loadResults();
+        clearInterval(timeleftTimer);
+        hide("timer");
     }
 }
 
 //----------------------------------- RESTART THE QUIZ -----------------------------------//
 
-function Home() {
-    // console.log("Redirected to home");
-    Reset();
-    hide("result");
-    show("quizOptions");
+function Restart(){
+    location.reload();
 }
 
 //----------------------------------- REST THE STATS ------------------------------------//
@@ -69,6 +71,7 @@ function Reset() {
     for (let key in result) {
         result[key].value = (typeof (result[key].value) == Number) ? 0 : "";
     }
+    loadQuestions();
     for( let ques in questions){
         questions[ques].answered=false;
     }
@@ -115,3 +118,30 @@ function SelectedIncorrect(id) {
     }
 }
 
+
+//-----------------------------------------------------------------------------------------//
+//                                        QUIZ TIMER                                       //
+//-----------------------------------------------------------------------------------------//
+
+
+let minLeft ,secLeft ,timeleftTimer ;
+function timer(){
+    secLeft--;
+    document.getElementById("timer").innerHTML=minLeft+":"+secLeft;
+    if(secLeft<=0){
+        minLeft--;
+        secLeft=60;
+        if(minLeft<=-1){
+            clearInterval(timeleftTimer);        
+            document.getElementById("timer").innerHTML="Times Up!";
+            alert("Times Up!")
+            hide("questions");
+            show("result");
+            loadResults();
+        }
+    }
+}
+
+function startTimer(){
+    timeleftTimer = setInterval(timer,1000);
+}
