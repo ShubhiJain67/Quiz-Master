@@ -8,8 +8,8 @@
 function Back(card){
     // console.log("Back "+card);
     let id = card.substring(4);
-    document.getElementById("question" + (Number(id) - 1)).style.display = "block";
-    document.getElementById("question" + id).style.display = "none";  
+    hide("question" + id);
+    show("question" + (Number(id) - 1));
 }
 
 //---------------------------------- GO TO NEXT QUESTION ----------------------------------//
@@ -17,19 +17,27 @@ function Back(card){
 function Next(card) {
     // console.log("Next " + card);
     let id = card.substring(4);
-    document.getElementById("question" + (Number(id) + 1)).style.display = "block";
-    document.getElementById("question" + id).style.display = "none";
+    hide("question" + id);
+    show("question" + (Number(id) + 1));
 }
 
 //------------------------------------ START THE QUIZ ------------------------------------//
 
 function StartQuiz() {
     // console.log("Started Quiz");
-    document.getElementById("home").style.display = "none";
-    document.getElementById("result").style.display = "none";
-    if (questions.length > 0) {
-        document.getElementById("question1").style.display = "block";
+    hide("home");
+    if (size(questions)> 0) {
+        show("question1");
     }
+}
+
+//--------------------------------- START THE QUIZ AGAIN ----------------------------------//
+
+function StartAgain(){
+    Reset();
+    hide("result");
+    show("questions");
+    StartQuiz();
 }
 
 //------------------------------------- END THE QUIZ -------------------------------------//
@@ -37,8 +45,8 @@ function StartQuiz() {
 function EndQuiz() {
     // console.log("Ended Quiz");
     if (confirm("Are you sure want to submit the quiz?")) {
-        document.getElementById("question" + questions.length).style.display = "none";
-        document.getElementById("result").style.display = "block";
+        hide("question" + size(questions));
+        show("result");
         loadResults();
     }
 }
@@ -47,9 +55,9 @@ function EndQuiz() {
 
 function Home() {
     // console.log("Redirected to home");
-    document.getElementById("home").style.display = "block";
-    document.getElementById("result").style.display = "none";
     Reset();
+    hide("result");
+    show("quizOptions");
 }
 
 //----------------------------------- REST THE STATS ------------------------------------//
@@ -58,9 +66,11 @@ function Reset() {
     // console.log("Reseting");
     result.attempted.value = 0, result.wrong.value = 0;
     questionHtml = "", resultHtml = "";
-    loadQuestions();
     for (let key in result) {
         result[key].value = (typeof (result[key].value) == Number) ? 0 : "";
+    }
+    for( let ques in questions){
+        questions[ques].answered=false;
     }
 }
 
@@ -104,3 +114,4 @@ function SelectedIncorrect(id) {
         document.getElementById(id).classList.add(classToAdd);
     }
 }
+

@@ -19,11 +19,18 @@
 
 <body>
     <div id="quiz-wrapper">
+        <!-- --------------------------------------- QUIZ SELECTION --------------------------------------- -->
+        <div id="quizOptions" style="text-align: center;">
+            <h3 class="heading">Please select the subject for the quiz.</h3>
+            <div id="quizes" >
+            </div>
+        </div>
 
         <!-- ------------------------------------- ENTER PERSONAL INFO ------------------------------------ -->
         <div id="personalInfo">
             <h3 class="heading">Please enter your name.</h3>
             <input id="name" type="text" />
+            
             <button class="bttn" onclick="loadIntroduction()">Enter</button>
         </div>
 
@@ -42,13 +49,15 @@
             <table id="resultTable">                
             </table>
             <div>
-                <!-- <button class="bttn" onclick="StartQuiz()">Try Again</button> -->
+                <button class="bttn" onclick="StartAgain()">Try Again</button>
                 <button class="bttn" onclick="Home()">Go to Home</button>
             </div>
         </div>
     </div>
     <!-- -------------------------------------------- SCRIPTS -------------------------------------------- -->
+    <script src="scripts/dataScript.js" defer></script>
     <script src="scripts/onLoadScript.js" defer></script>
+    <script src="scripts/generalScript.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.1/marked.min.js"></script>
 </body>

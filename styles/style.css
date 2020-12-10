@@ -19,12 +19,16 @@ body{
 }
 #personalInfo{
     text-align: center;
+    display: none;
 }
 #name{
     width: 100%;
     height: 40px;
     text-align: center;
     border: 2px solid var(--baseColor);
+}
+#home{
+    display: none;
 }
 #result{
     text-align: center;
