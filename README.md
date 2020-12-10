@@ -1,7 +1,7 @@
 # Quiz-Master
  This is a quizing platform where you can conduct Multiple quizes with Timer functionality.
  
- Technology used : Html,Css,Javascript,JQuery
+ Technology used : Html, Css, Bootstrap, JavaScript, JQuery
  
 ![QuizOptions](https://user-images.githubusercontent.com/34946411/101786009-6cc9f100-3b23-11eb-98b2-34b049b357c6.PNG)
 
